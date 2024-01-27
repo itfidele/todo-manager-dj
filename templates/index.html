@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+
+<h1>Index page</h1>
+{{ request.user.username }}
+
+{% if request.user.is_authenticated %}
+    
+<form method='post' action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button name="submit" type="submit" class="nrk-button nrk-button--o" >Logout</button>
+</form>
+{% else %}
+    <a href="{% url 'login' %}" >Login</a>
+{% endif %}
+
+
+<ul>
+    <li>you have {{ tasks.count }} Tasks | <a href="task/create/">Add Task</a>  <a href="{% url 'task-list' %}">View Task</a> </li>
+    <li>you have {{ categories.count }} categories | <a href="category/create/">Add Category</a> </li>
+</ul>
+
+{% endblock content %}
+
+
+

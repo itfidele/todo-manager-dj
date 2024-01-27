@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+
+
+
+
+
+{% block content %}
+
+<h1> Task List</h1>
+<ul>
+    {% for task in object_list %}
+        <li>
+            <a href="{% url 'task-view' task.id %}">{{ task.title }} | <a href="{% url 'task-delete' task.id %}" bgcolor="red" color="white">Delete</a> | <a href="{% url 'task-edit' task.id %}" bgcolor="red" color="white">Update</a> | <a href="{% url 'task-view' task.id %}" bgcolor="red" color="white">View</a></a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

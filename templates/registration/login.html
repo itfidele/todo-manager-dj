@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+
+
+{% block content %}
+
+<h1>custom Login form here </h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.as_p }}
+
+    <input type="submit" name="login" value="Login"> | <a href="{% url 'signup' %}">Sign Up</a>
+</form>
+
+{% endblock content %}
